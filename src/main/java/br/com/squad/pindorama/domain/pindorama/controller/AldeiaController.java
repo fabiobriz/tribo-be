@@ -2,13 +2,12 @@ package br.com.squad.pindorama.domain.pindorama.controller;
 
 import br.com.squad.pindorama.domain.pindorama.model.Aldeia;
 import br.com.squad.pindorama.domain.pindorama.service.AldeiaService;
-import br.com.squad.pindorama.domain.pindorama.service.impl.AldeiaServiceImpl;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.parameters.P;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -35,6 +34,11 @@ public class AldeiaController {
   @GetMapping("/{id}")
   public Aldeia findById(@PathVariable String id){
     return aldeiaService.find(id).orElseThrow(RuntimeException::new);
+  }
+
+  @GetMapping("/user/{userId}")
+  public Aldeia findByUserId(@PathVariable String userId){
+    return aldeiaService.findByUserId(userId).orElseThrow(RuntimeException::new);
   }
 
   @PostMapping

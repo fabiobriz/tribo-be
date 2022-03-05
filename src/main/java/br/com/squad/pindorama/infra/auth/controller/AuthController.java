@@ -91,11 +91,6 @@ public class AuthController {
     Set<String> strRoles = signUpRequest.getRole();
     Set<Role> roles = new HashSet<>();
 
-    if (strRoles == null) {
-      Role userRole = roleRepository.findByName(EnumRole.ROLE_CLIENTE)
-          .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
-      roles.add(userRole);
-    } else {
       strRoles.forEach(role -> {
         switch (role) {
           case "admin":
@@ -118,7 +113,6 @@ public class AuthController {
             break;
         }
       });
-    }
 
     user.setRoles(roles);
     userRepository.save(user);

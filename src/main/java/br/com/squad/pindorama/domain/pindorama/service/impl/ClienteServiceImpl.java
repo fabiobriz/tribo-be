@@ -1,10 +1,7 @@
 package br.com.squad.pindorama.domain.pindorama.service.impl;
 
-import br.com.squad.pindorama.domain.pindorama.model.Artesanato;
 import br.com.squad.pindorama.domain.pindorama.model.Cliente;
-import br.com.squad.pindorama.domain.pindorama.repository.ArtesanatoRepository;
 import br.com.squad.pindorama.domain.pindorama.repository.ClienteRepository;
-import br.com.squad.pindorama.domain.pindorama.service.ArtesanatoService;
 import br.com.squad.pindorama.domain.pindorama.service.ClienteService;
 import java.util.List;
 import java.util.Optional;
@@ -52,5 +49,10 @@ public class ClienteServiceImpl implements ClienteService {
   @Override
   public void delete(String id) {
     clienteRepository.deleteById(id);
+  }
+
+  @Override
+  public Optional<Cliente> findByUserId(String userId) {
+    return clienteRepository.findByUserId(userId);
   }
 }

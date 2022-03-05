@@ -46,4 +46,9 @@ public class AldeiaServiceImpl implements AldeiaService {
   public void delete(String id) {
     aldeiaRepository.deleteById(id);
   }
+
+  @Override
+  public Optional<Aldeia> findByUserId(String userId) {
+    return aldeiaRepository.findByUserId(userId);
+  }
 }

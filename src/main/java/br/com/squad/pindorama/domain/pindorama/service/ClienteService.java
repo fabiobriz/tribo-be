@@ -16,6 +16,5 @@ public interface ClienteService {
 
   void delete(String id);
 
-
-
+  Optional<Cliente> findByUserId(String userId);
 }

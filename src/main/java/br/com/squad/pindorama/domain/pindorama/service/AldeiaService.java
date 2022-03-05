@@ -17,5 +17,5 @@ public interface AldeiaService {
   void delete(String id);
 
 
-
+  Optional<Aldeia> findByUserId(String userId);
 }

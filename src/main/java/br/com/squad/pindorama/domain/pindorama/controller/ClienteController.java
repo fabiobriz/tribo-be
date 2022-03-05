@@ -35,6 +35,10 @@ public class ClienteController {
     return clienteService.find(id).orElseThrow(RuntimeException::new);
   }
 
+  @GetMapping("/user/{userId}")
+  public Cliente findByUserId(@PathVariable String userId){
+    return clienteService.findByUserId(userId).orElseThrow(RuntimeException::new);
+  }
   @PostMapping
   public ResponseEntity create (@RequestBody Cliente cliente) throws URISyntaxException {
     Cliente clienteCriado = clienteService.create(cliente);

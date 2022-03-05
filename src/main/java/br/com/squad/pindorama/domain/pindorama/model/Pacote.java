@@ -1,7 +1,5 @@
 package br.com.squad.pindorama.domain.pindorama.model;
 
-import br.com.squad.pindorama.infra.auth.model.Role;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.time.Instant;
 import java.util.HashSet;
 import java.util.Set;
